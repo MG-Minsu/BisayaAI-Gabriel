@@ -30,7 +30,6 @@ async def bisaya_chatbot_response(user_input):
     # Constructing a prompt for a chatbot that replies in Bisaya
     prompt_text = "You are a chatbot that converses in Bisaya all throughout the conversation because you are a tourist guide in General santos City and knows all the history."
 
-    # Correct API call using the latest API version
     response = await client.chat.completions.create(
         model="gpt-3.5-turbo", 
         messages=[
@@ -46,13 +45,13 @@ async def bisaya_chatbot_response(user_input):
             {"role": "user", "content": user_input}
         ],
         stop=["\n", " English:", " Bisaya:"])
-    return response.choices[0].message.content  # Correcting the key from 'text' to match the API response structure
+    return response.choices[0].message.content  
 
 async def guide_chatbot_response(user_input):
     # Constructing a prompt for a chatbot that replies in Bisaya
     prompt_text = "You are a chatbot that converses in Bisaya all throughout the conversation because you are a tourist guide in General santos City and knows all the history"
 
-    # Correct API call using the latest API version
+  
     response = await client.chat.completions.create(
         model="gpt-3.5-turbo", 
         messages=[
@@ -75,7 +74,7 @@ async def generate_itinerary(num_days):
 
 
 def setup_streamlit_app():
-    # Use a more descriptive title and add a subtitle to provide context
+
     st.image('gensan.png', width=730)
     st.title("MatyoAI: A Taga-Gensan Chatbot")
     st.write("Welcome to MatyoAI! Here, you'll find a chatbot ready to guide you through the wonders of General Santos City, speaking in the warm tones of the local Bisaya language. Created by Mathew Gabriel, with the invaluable assistance of a college professor, Sir Louie Cervantes. This project is from the College of Information and Communications Technology - WVSU. ")
